@@ -5,7 +5,7 @@ name: "build"
 on:
   push:
     branches:
-      - "main"
+      - "*"
     tags:
       - "*"
   pull_request:
@@ -77,6 +77,8 @@ jobs:
 
       - name: "Install dependencies (Composer)"
         uses: "ramsey/composer-install@v2"
+        with:
+          working-directory: "tools/php-cs-fixer"
 
       - name: "Run unit tests (PHPUnit)"
         shell: "bash"
